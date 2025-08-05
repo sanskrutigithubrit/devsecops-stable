@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsecops-stable
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devsecops-stable
+  template:
+    metadata:
+      labels:
+        app: devsecops-stable
+    spec:
+      containers:
+      - name: flask-container
+        image: sanskrutisardare1/devsecops-stable:latest
+        ports:
+        - containerPort: 5000
