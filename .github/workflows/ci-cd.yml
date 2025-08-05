@@ -33,7 +33,7 @@ jobs:
     - name: Trivy Scan
       run: bash security/trivy_scan.sh sanskrutisardare1/devsecops-stable:latest
 
-    - name: Push Docker image
+    - name: Build and Push Docker image
       run: |
-        echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u sanskrutisardare1 --password-stdin
+        docker build -t sanskrutisardare1/devsecops-stable:latest ./app
         docker push sanskrutisardare1/devsecops-stable:latest
