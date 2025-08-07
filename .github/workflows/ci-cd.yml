@@ -54,9 +54,11 @@ jobs:
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v2
+      env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        organization: sanskrutigit
-        projectKey: devsecops-stable
-        token: ${{ secrets.SONAR_TOKEN }}
+        args: >
+          -Dsonar.projectKey=sanskrutigithubrit_devsecops-stable
+          -Dsonar.organization=sanskrutigithubrit
+          -Dsonar.python.version=3.10
 
- 
