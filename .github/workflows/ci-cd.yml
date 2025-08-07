@@ -52,3 +52,11 @@ jobs:
     - name: Push Docker image
       run: docker push sanskrutisardare1/devsecops-stable:latest
 
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@v2
+      with:
+        organization: sanskrutigit
+        projectKey: devsecops-stable
+        token: ${{ secrets.SONAR_TOKEN }}
+
+ 
